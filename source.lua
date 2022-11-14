@@ -5,6 +5,7 @@ by Sirius
 
 shlex | Designing + Programming
 iRay  | Programming
+SupLua | Fix Dragging for Mobile
 
 ]]
 
@@ -877,6 +878,8 @@ function RayfieldLibrary:CreateWindow(Settings)
 	Main.Size = UDim2.new(0, 450, 0, 260)
 	Main.Visible = true
 	Main.BackgroundTransparency = 1
+        Main.Active = true
+        Main.Draggable = true -- this is the replacement of dragging due can't drag for phone.
 	LoadingFrame.Title.TextTransparency = 1
 	LoadingFrame.Subtitle.TextTransparency = 1
 	Main.Shadow.Image.ImageTransparency = 1
@@ -912,7 +915,8 @@ function RayfieldLibrary:CreateWindow(Settings)
 		end
 	end)
 
-	AddDraggingFunctionality(Topbar,Main)
+	--AddDraggingFunctionality(Topbar,Main)
+        --[[ I fixed it for Mobile :3 ]]
 
 	for _, TabButton in ipairs(TabList:GetChildren()) do
 		if TabButton.ClassName == "Frame" and TabButton.Name ~= "Placeholder" then
